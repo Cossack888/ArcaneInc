@@ -13,6 +13,7 @@ public class ItemSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public bool Restricted, WarehouseSlot, MainInventorySlot, ShopSlot, CurrentSlot,
                 IngredientSlot, CraftingTableSlot, TakeOnly, MarketSlot, MainSupplySlot;
     private MovingObjects _movingObjects;
+    public string ID;
     void Start()
     {
         _itemCount = GetComponentInChildren<TMP_Text>();
@@ -54,6 +55,13 @@ public class ItemSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         NewSlot.amount = _movingObjects.ItemAmount;
         NewSlot.Image.sprite = _movingObjects.NewItem.Sprite;
         NewSlot.Recount();
+    }
+    public void SetItemInSLot(Item item, int amount)
+    {
+        this.CurrentItem = item;
+        this.amount = amount;
+        this.Image.sprite = item.Sprite;
+        Recount();
     }
     public void ClearSlot()
     {

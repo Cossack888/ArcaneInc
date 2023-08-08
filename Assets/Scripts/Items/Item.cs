@@ -8,8 +8,9 @@ public class Item : ScriptableObject
     public ItemType Type;
     public bool IsStackable = true;
     public string ItemName;
-    public int MaximumStacks = 99;
+    //public int MaximumStacks = 99;
     public float Value;
+    public int Rarity;
 
     public enum ItemType
     {
